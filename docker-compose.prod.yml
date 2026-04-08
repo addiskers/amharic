@@ -1,0 +1,39 @@
+services:
+  backend:
+    build: ./backend
+    expose:
+      - "8000"
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+    networks:
+      - tenagari-net
+
+  frontend:
+    build: ./frontend
+    expose:
+      - "80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - tenagari-net
+
+  mongodb:
+    image: mongo:7
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+    networks:
+      - tenagari-net
+
+networks:
+  tenagari-net:
+    driver: bridge
+
+volumes:
+  mongo_data:
