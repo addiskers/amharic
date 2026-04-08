@@ -84,6 +84,9 @@ body {
   padding-left: 9px;
 }
 
+/* Min touch target 44px for mobile */
+.touch-target { min-width: 44px; min-height: 44px; }
+
 /* iOS zoom prevention */
 @media (max-width: 640px) {
   input, textarea, select { font-size: 16px !important; }
