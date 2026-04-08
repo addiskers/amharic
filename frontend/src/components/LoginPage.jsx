@@ -105,9 +105,6 @@ export default function LoginPage({ onLogin }) {
           </button>
         </form>
 
-        <p className="text-center text-earth-400 text-xs mt-6">
-          Powered by Gemini AI
-        </p>
       </div>
     </div>
   )
